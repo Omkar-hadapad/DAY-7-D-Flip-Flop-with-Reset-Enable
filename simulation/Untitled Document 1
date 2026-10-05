@@ -1,0 +1,41 @@
+ncsim> 
+ncsim> database -open waves -into waves.shm -default
+Created default SHM database waves
+ncsim> probe -create -shm day7_tb.clk day7_tb.d day7_tb.en day7_tb.q_async day7_tb.q_sync day7_tb.reset_async day7_tb.reset_sync
+Created probe 1
+ncsim> run
+TIME=0 CLK=0 SYNC_RST=0 ASYNC_RST=0 EN=0 D=0 Q_SYNC=x Q_ASYNC=x
+TIME=2 CLK=0 SYNC_RST=1 ASYNC_RST=1 EN=0 D=0 Q_SYNC=x Q_ASYNC=0
+TIME=5 CLK=1 SYNC_RST=0 ASYNC_RST=0 EN=0 D=0 Q_SYNC=x Q_ASYNC=0
+TIME=7 CLK=1 SYNC_RST=0 ASYNC_RST=0 EN=1 D=1 Q_SYNC=x Q_ASYNC=0
+TIME=10 CLK=0 SYNC_RST=0 ASYNC_RST=0 EN=1 D=1 Q_SYNC=x Q_ASYNC=0
+TIME=15 CLK=1 SYNC_RST=0 ASYNC_RST=0 EN=1 D=1 Q_SYNC=1 Q_ASYNC=1
+TIME=17 CLK=1 SYNC_RST=0 ASYNC_RST=0 EN=0 D=0 Q_SYNC=1 Q_ASYNC=1
+TIME=20 CLK=0 SYNC_RST=0 ASYNC_RST=0 EN=0 D=0 Q_SYNC=1 Q_ASYNC=1
+TIME=25 CLK=1 SYNC_RST=0 ASYNC_RST=0 EN=0 D=0 Q_SYNC=1 Q_ASYNC=1
+====================================
+ASYNC RESET TEST
+====================================
+TIME=27 CLK=1 SYNC_RST=0 ASYNC_RST=1 EN=0 D=0 Q_SYNC=1 Q_ASYNC=0
+Time=29 reset_async=1 q_async=0
+TIME=29 CLK=1 SYNC_RST=0 ASYNC_RST=0 EN=1 D=1 Q_SYNC=1 Q_ASYNC=0
+TIME=30 CLK=0 SYNC_RST=0 ASYNC_RST=0 EN=1 D=1 Q_SYNC=1 Q_ASYNC=0
+TIME=35 CLK=1 SYNC_RST=0 ASYNC_RST=0 EN=1 D=1 Q_SYNC=1 Q_ASYNC=1
+====================================
+SYNC RESET TEST
+====================================
+TIME=39 CLK=1 SYNC_RST=1 ASYNC_RST=0 EN=1 D=1 Q_SYNC=1 Q_ASYNC=1
+TIME=40 CLK=0 SYNC_RST=1 ASYNC_RST=0 EN=1 D=1 Q_SYNC=1 Q_ASYNC=1
+Before clock edge:
+Time=41 reset_sync=1 q_sync=1
+After clock edge:
+Time=44 reset_sync=1 q_sync=1
+TIME=44 CLK=0 SYNC_RST=0 ASYNC_RST=0 EN=1 D=1 Q_SYNC=1 Q_ASYNC=1
+TIME=45 CLK=1 SYNC_RST=0 ASYNC_RST=0 EN=1 D=1 Q_SYNC=1 Q_ASYNC=1
+TIME=50 CLK=0 SYNC_RST=0 ASYNC_RST=0 EN=1 D=1 Q_SYNC=1 Q_ASYNC=1
+====================================
+DAY 7 TEST COMPLETE
+====================================
+Simulation complete via $finish(1) at time 54 NS + 0
+./day7_tb.v:178         $finish;
+ncsim> 
