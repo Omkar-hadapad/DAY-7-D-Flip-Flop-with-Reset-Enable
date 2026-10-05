@@ -10,7 +10,7 @@
 //======================================================
 
 module dff_basic(
-    input clk,
+    input clk, 
     input d,
     output reg q
 );
